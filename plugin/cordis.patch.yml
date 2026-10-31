@@ -1,0 +1,4 @@
+- insert:
+    - id: science-legion
+      name: dsh-science-legion
+      config: {}

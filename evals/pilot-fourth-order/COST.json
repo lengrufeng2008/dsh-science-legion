@@ -1,0 +1,18 @@
+{
+  "campaign": "pendulum-fourth-order",
+  "tier": "squad",
+  "agents": 6,
+  "startedAt": "2026-10-31T17:40:38+08:00",
+  "endedAt": "2026-10-31T18:02:59+08:00",
+  "model": "deepseek-flash",
+  "tokens": {
+    "input": 155611,
+    "cacheRead": 5790848,
+    "output": 295723
+  },
+  "costCny": 1.45431996,
+  "source": "DSH session logs; dsh-token-audit parseSession sum over the six agent sessions",
+  "verifiedAnswer": "T/T0 = 1 + theta0^2/16 + 11 theta0^4/3072 + O(theta0^6) is supported; the shipped T4 answer key (1.066315375) was T6, corrected to 3275/3072 = 1.066080729167.",
+  "costPerVerifiedAnswerCny": 1.45431996,
+  "notes": "Six agent sessions only: scout, theorist, calculator, independent verifier, red team, commander. The workflow orchestration and main session are excluded. 110 calls, 5,790,848 cache-read input, 155,611 uncached input, 295,723 output. Cost is measured locally from session logs, not estimated. No 24/96/1000 run."
+}

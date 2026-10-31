@@ -1,0 +1,82 @@
+[
+  {
+    "id": "math-odd-sum",
+    "domain": "math",
+    "prompt": "Prove that the sum of the first n positive odd integers is n squared.",
+    "expected": "1 + 3 + ... + (2n-1) = n^2",
+    "verify": "Induction with base n=1 and the step (n+1)^2 = n^2 + (2n+1).",
+    "difficulty": 1
+  },
+  {
+    "id": "math-pell-smallest",
+    "domain": "math",
+    "prompt": "Find the smallest positive integer solution of x^2 - 5y^2 = 1 with y > 0.",
+    "expected": "x=9, y=4",
+    "verify": "9^2 - 5*4^2 = 81 - 80 = 1; check all smaller y by exact arithmetic or continued fractions.",
+    "difficulty": 2
+  },
+  {
+    "id": "physics-pendulum-second-order",
+    "domain": "physics",
+    "prompt": "Derive the period of a simple pendulum to second order in the initial angular amplitude theta0, for small but nonzero theta0.",
+    "expected": "T ≈ 2*pi*sqrt(L/g) * (1 + theta0^2/16)",
+    "verify": "Expand the exact integral or the equation of motion; check the theta0 -> 0 limit and the sign of the correction.",
+    "difficulty": 3
+  },
+  {
+    "id": "physics-escape-earth",
+    "domain": "physics",
+    "prompt": "Estimate Earth's escape velocity from GM and R. State the value and the main assumptions.",
+    "expected": "sqrt(2GM/R) ≈ 11.2 km/s",
+    "verify": "Use G=6.67430e-11, M=5.972e24 kg, R=6.371e6 m; check units and the factor 2.",
+    "difficulty": 1
+  },
+  {
+    "id": "astronomy-distance-modulus",
+    "domain": "astronomy",
+    "prompt": "A star has distance modulus m - M = 5. What is its distance in parsecs?",
+    "expected": "100 pc",
+    "verify": "m - M = 5 log10(d/10 pc); 10^(5/5) * 10 = 100.",
+    "difficulty": 1
+  },
+  {
+    "id": "astronomy-flux-ratio",
+    "domain": "astronomy",
+    "prompt": "How many magnitudes correspond to a flux ratio of 100?",
+    "expected": "5 magnitudes",
+    "verify": "m1 - m2 = -2.5 log10(F1/F2); -2.5 log10(100) = -5, so the brighter object is 5 mag brighter.",
+    "difficulty": 1
+  },
+  {
+    "id": "engineering-beam-deflection",
+    "domain": "engineering",
+    "prompt": "For a simply supported beam of length L under a uniform load w, state the maximum deflection and where it occurs (Euler-Bernoulli).",
+    "expected": "delta_max = 5 w L^4 / (384 E I), at midspan",
+    "verify": "Solve EI y'''' = w with y(0)=y(L)=0 and y''(0)=y''(L)=0; check units L^4 * force/length / (force/length^2 * length^4).",
+    "difficulty": 2
+  },
+  {
+    "id": "physics-planck-length",
+    "domain": "physics",
+    "prompt": "Derive the Planck length from hbar, G, and c by dimensional analysis, and give its approximate value.",
+    "expected": "l_P = sqrt(hbar G / c^3) ≈ 1.616e-35 m",
+    "verify": "Solve [hbar]^a [G]^b [c]^c = L; check exponents a=b=1/2, c=-3/2; evaluate in SI.",
+    "difficulty": 2
+  },
+  {
+    "id": "physics-pendulum-fourth-order",
+    "domain": "physics",
+    "prompt": "For a simple pendulum of length L and zero-to-peak angular amplitude theta0, derive the period through fourth order in theta0. Give the coefficient of theta0^4, the exact elliptic-integral form, and the exact T/T0 at theta0=1 rad with the formula error.",
+    "expected": "T/T0 = 1 + theta0^2/16 + 11 theta0^4/3072 + O(theta0^6); exact = 4 K(sin(theta0/2))/(2 pi); at theta0=1 rad exact = 1.066334245579963, T4 = 3275/3072 = 1.066080729166667, error = -2.535164e-4 (relative -2.377457e-4). The value 1.066315375 is T6, not T4.",
+    "verify": "Exact AGM/Simpson evaluation of 4 K(sin(theta0/2))/(2 pi); exact rational series via K expansion; check theta0 -> 0, the sign, and distinguish T4=3275/3072 from T6=T4+173/737280.",
+    "difficulty": 3
+  },
+  {
+    "id": "biomed-risk-difference",
+    "domain": "biomedical",
+    "prompt": "A trial reports a 10% risk in the control arm and an 8% risk in the treatment arm over 5 years. Calculate the absolute risk reduction, relative risk reduction, and number needed to treat. State what is still missing before calling this patient benefit.",
+    "expected": "ARR = 2 percentage points; RRR = 20%; NNT = 1/0.02 = 50 over 5 years. Still missing: confidence interval, harms, outcome importance, applicability, and whether the difference is statistically robust.",
+    "verify": "ARR = 0.10 - 0.08 = 0.02; RRR = 0.02/0.10 = 0.20; NNT = 1/ARR = 50. Check the horizon and baseline risk; do not infer benefit from the relative number alone.",
+    "difficulty": 2
+  }
+]

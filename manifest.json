@@ -1,0 +1,58 @@
+[
+  {
+    "name": "science-legion",
+    "description": "Route a hard science problem to a domain method and a tiered multi-agent campaign. Use when a math, physics, astronomy, engineering, or biomedical-evidence claim needs independent derivations, computation, literature scouting, and verification rather than a single answer.",
+    "whenToUse": "A hard science problem, a contested derivation, a numerical claim, or a request for a multi-agent research campaign.",
+    "dir": "science-legion",
+    "domain": "router"
+  },
+  {
+    "name": "legion-command",
+    "description": "Command a tiered science campaign with DSH subagents and workflows, a shared blackboard, independent verification, and explicit token and time budgets. Use when a problem needs more than one agent or more than one independent line of attack.",
+    "whenToUse": "A multi-agent science campaign, a difficult derivation, or a request for a swarm, legion, or wolf-pack attack on a problem.",
+    "dir": "legion-command",
+    "domain": "orchestration"
+  },
+  {
+    "name": "math-research",
+    "description": "Attack a mathematical claim with definitions, known results, proof obligations, counterexample search, symbolic and numerical checks, and independent verification. Use for proofs, derivations, inequalities, combinatorics, algebra, analysis, and conjectures.",
+    "whenToUse": "A theorem, proof, counterexample, inequality, combinatorial claim, or a request to solve a mathematical problem.",
+    "dir": "math-research",
+    "domain": "math"
+  },
+  {
+    "name": "physics-research",
+    "description": "Attack a physics or engineering claim with dimensional analysis, conservation laws, limiting cases, approximation control, simulation, uncertainty, and independent verification. Use for models, derivations, estimates, simulations, and measurements.",
+    "whenToUse": "A physical model, units and dimensions, conservation law, approximation, simulation, measurement, or engineering estimate.",
+    "dir": "physics-research",
+    "domain": "physics"
+  },
+  {
+    "name": "astronomy-research",
+    "description": "Attack an astronomy or astrophysics claim with coordinate and time conventions, photometry and spectroscopy, distance and selection effects, archival data, and independent verification. Use for objects, surveys, spectra, distances, and cosmological claims.",
+    "whenToUse": "An object, coordinate, time, magnitude, distance, spectrum, survey, or astrophysical claim.",
+    "dir": "astronomy-research",
+    "domain": "astronomy"
+  },
+  {
+    "name": "engineering-research",
+    "description": "Attack an engineering design, analysis, or test claim with requirements, load cases, units, safety factors, tolerances, failure modes, and independent verification. Use for mechanical, civil, electrical, or systems calculations; not a substitute for a licensed engineer's signed approval.",
+    "whenToUse": "An engineering calculation, design claim, safety factor, tolerance, failure mode, simulation, or test plan.",
+    "dir": "engineering-research",
+    "domain": "engineering"
+  },
+  {
+    "name": "biomedical-research",
+    "description": "Appraise biomedical evidence with PICO, study design, effect measures, bias, applicability, and reproducibility. Use for evidence review and critical appraisal; this is not medical advice, diagnosis, or treatment, and it must not handle patient-identifiable data.",
+    "whenToUse": "A biomedical study, trial, observational association, diagnostic claim, or evidence review that needs critical appraisal rather than a treatment recommendation.",
+    "dir": "biomedical-research",
+    "domain": "biomedical"
+  },
+  {
+    "name": "science-verify",
+    "description": "Independently verify a scientific claim with reproduction, evidence tables, tolerance checks, falsification, and provenance. Use before presenting any proof, number, model, or empirical claim.",
+    "whenToUse": "A result is about to be reported, or a claim needs an independent check rather than an author's reread.",
+    "dir": "science-verify",
+    "domain": "verification"
+  }
+]

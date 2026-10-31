@@ -1,0 +1,54 @@
+{
+  "name": "dsh-science-legion",
+  "version": "0.2.0",
+  "description": "Tiered multi-agent science campaigns for DeepSeek Harness: math, physics, and astronomy with independent verification, a shared blackboard, and budget gates. No claim of solving open problems.",
+  "type": "module",
+  "exports": {
+    ".": "./plugin/index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "plugin",
+    "skills",
+    "manifest.json",
+    "scripts",
+    "evals",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE",
+    "assets/*.png",
+    "REVIEW.md",
+    "showcase.html",
+    "index.html"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./plugin/cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "science",
+    "math",
+    "physics",
+    "astronomy",
+    "multi-agent",
+    "swarm"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lengrufeng2008/dsh-science-legion.git"
+  },
+  "homepage": "https://github.com/lengrufeng2008/dsh-science-legion#readme",
+  "bugs": {
+    "url": "https://github.com/lengrufeng2008/dsh-science-legion/issues"
+  },
+  "author": "lengrufeng2008"
+}
