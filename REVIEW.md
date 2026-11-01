@@ -11,7 +11,7 @@ A skill bundle, not a solver. The unit of progress is a verified claim.
 5. `skills/math-research`, `physics-research`, `astronomy-research` — domain methods and verification checklists.
 6. `skills/science-verify` — independent evidence table, reproduction, falsification.
 7. `evals/problems.json` — ten known-answer problems.
-8. `evals/pilot-pendulum/` — four-agent pilot; `check.py` and a separately written `independent.py`; `run.log`.
+8. `evals/pilot-pendulum/` — four-agent pilot; `check.py` and a separately written `independent.py`; `run.txt`.
 9. `test/skills.test.mjs` — manifest, provider, doctrine markers, evals.
 
 ## What the pilot establishes
@@ -31,4 +31,4 @@ A skill bundle, not a solver. The unit of progress is a verified claim.
 
 ## Tests
 
-`npm test` — 7/7.
+`npm test` — 10/10.
