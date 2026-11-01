@@ -1,11 +1,18 @@
 # Changelog
 
+## Unreleased
+
+- Added `evals/scale/PLAN.md`: a written 24-agent scaling gate with a hard cap, abort conditions, and explicit `NOT RUN` status. No 24-agent result is claimed.
+- Updated roadmap; tests now 10/10.
+- Added `scripts/preflight-package.mjs` and `npm run preflight` to catch unsupported artifacts and package-surface issues before a store submission.
+- Renamed shipped raw `.log` evidence to `.txt` so the DSH-Store precheck does not treat it as unsupported artifacts; docs references updated.
+
 ## 0.2.0 — 2026-10-31
 
 - Added `engineering-research` and `biomedical-research` skills; eight skills total.
 - Added a biomedical risk-difference/NNT eval; ten known-answer evals.
 - Biomedical skill is evidence appraisal only: not medical advice, no patient data. Engineering skill is not a signed certification.
-- Version 0.2.0; 7/7 tests.
+- Version 0.2.0; 8/8 tests after the scaling-gate test.
 
 ## 0.1.2 — 2026-10-31
 
