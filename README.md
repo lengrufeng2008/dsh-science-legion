@@ -84,9 +84,10 @@ The commander writes a brief under `research/<slug>/`, starts with a squad, and 
 
 ## Roadmap
 
-- **v0.2 (this bundle)** — eight skills, ten known-answer evals, two pilots.
-- **v0.2** — validated 6- and 24-agent runs, a token cost ledger, artifact manifests, and a hard verifier gate.
-- **v0.3** — a Host `legion` planner/dashboard and a 96-agent company run with a budget cap.
+- **v0.2.0 (this bundle)** — eight skills, ten known-answer evals, two pilots, a measured six-agent ledger, and a cost estimator.
+- **v0.2.x** — catalog/DSH-Store listings and a written 24-agent scaling gate ([plan](evals/scale/PLAN.md), not run).
+- **v0.3** — a 24-agent run validated under a hard cap, with artifacts and an independent verifier.
+- **v0.4** — a 96-agent company run only after 24 passes; host planner/dashboard work.
 - **v1.0** — budgeted 384–1000-agent campaigns, proof/certificate/measurement requirements, and a public benchmark ledger. Open problems remain attempts until a proof or decisive measurement exists.
 
 No tier is a promise of a breakthrough. The roadmap is about better evidence per token, not bigger numbers.
@@ -94,6 +95,17 @@ No tier is a promise of a breakthrough. The roadmap is about better evidence per
 ## Review
 
 Standalone showcase: [`showcase.html`](showcase.html). See [`REVIEW.md`](REVIEW.md) for a 60-second code tour and the boundaries of what the pilot does and does not establish.
+
+## Package preflight
+
+Before a store submission, check the package surface locally:
+
+```bash
+npm run preflight
+```
+
+It checks the declared `files`, unsupported artifacts, lifecycle scripts, license, and bundle patch.
+It is an early check, not the DSH-Store security review.
 
 ## Tests
 
