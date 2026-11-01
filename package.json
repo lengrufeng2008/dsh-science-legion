@@ -1,7 +1,7 @@
 {
   "name": "dsh-science-legion",
   "version": "0.2.0",
-  "description": "Tiered multi-agent science campaigns for DeepSeek Harness: math, physics, and astronomy with independent verification, a shared blackboard, and budget gates. No claim of solving open problems.",
+  "description": "Tiered multi-agent science campaigns for DeepSeek Harness: math, physics, astronomy, engineering, and biomedical evidence with independent verification, a shared blackboard, and budget gates. No claim of solving open problems.",
   "type": "module",
   "exports": {
     ".": "./plugin/index.js",
@@ -36,11 +36,16 @@
     "physics",
     "astronomy",
     "multi-agent",
-    "swarm"
+    "swarm",
+    "engineering",
+    "biomedical",
+    "verification",
+    "research"
   ],
   "license": "MIT",
   "scripts": {
-    "test": "node --test test/*.test.mjs"
+    "test": "node --test test/*.test.mjs",
+    "preflight": "node scripts/preflight-package.mjs"
   },
   "repository": {
     "type": "git",
