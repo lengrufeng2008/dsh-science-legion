@@ -40,10 +40,10 @@ The answer key was corrected in `evals/problems.json`; the formula was not chang
 |---|---|
 | Scout | `SCOUT.md`, `scout_check.py` (in the campaign workspace) |
 | Theorist | derivation in `BRIEF.md` / `EVIDENCE.md` |
-| Calculator | `check.py`, `run.log` |
-| Independent verifier | `VERIFY.py`, `VERIFY_run.log` — claim-only input, own 110-digit code |
+| Calculator | `check.py`, `run.txt` |
+| Independent verifier | `VERIFY.py`, `VERIFY_run.txt` — claim-only input, own 110-digit code |
 | Red team | source audit, convention probes, large-angle breakdown in `COMMANDER_check.py` |
-| Commander | `COMMANDER_check.py`, `COMMANDER_run.log`, synthesis |
+| Commander | `COMMANDER_check.py`, `COMMANDER_run.txt`, synthesis |
 
 The verifier did not read the author's derivation before writing its own code. The commander then
 reran the scripts; all exited 0. The commander wrote `COST.json` with `costCny: null` because token
