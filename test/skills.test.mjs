@@ -85,3 +85,15 @@ test('known-answer evals are present and never claim an open problem', async () 
   const dirs = await readdir(join(ROOT, 'skills'))
   assert.deepEqual(dirs.sort(), MANIFEST.map((entry) => entry.dir).sort())
 })
+
+test('the scaling plan is explicitly not run', async () => {
+  const plan = await readFile(join(ROOT, 'evals/scale/PLAN.md'), 'utf8')
+  assert.match(plan, /Status: NOT RUN/)
+  assert.match(plan, /24 agents/)
+  assert.match(plan, /never replace it with the estimate/i)
+})
+
+test('the shipped evidence uses text, not unsupported .log artifacts', async () => {
+  const files = await readdir(join(ROOT, 'evals'), { recursive: true })
+  assert.ok(!files.some((file) => file.endsWith('.log')), 'raw .log files should not be shipped')
+})
