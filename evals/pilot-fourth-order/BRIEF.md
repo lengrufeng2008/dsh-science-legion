@@ -28,14 +28,14 @@ entry `physics-pendulum-fourth-order`):
 - Roles and artifacts:
   - **Scout / theorist** — `SCOUT.md` + `scout_check.py`: energy integral, K-series
     composition, exact coefficient extraction, limits, pitfalls.
-  - **Calculator** — `check.py` + `run.log`: independent 90-digit AGM evaluation of the
+  - **Calculator** — `check.py` + `run.txt`: independent 90-digit AGM evaluation of the
     exact period and the truncation at 1 rad.
-  - **Independent verifier** — `VERIFY.py` + `VERIFY_run.log`: claim-only input, own
+  - **Independent verifier** — `VERIFY.py` + `VERIFY_run.txt`: claim-only input, own
     110-digit Decimal code, exact rational series, tanh-sinh quadrature, AGM/K cross-check.
   - **Red team** — no standalone artifact was present; the commander performed this lane in
     `COMMANDER_check.py` (source-tuple audit, error-sign audit, unit/amplitude conventions,
     wrong-modulus shortcut, large-angle breakdown).
-  - **Commander** — `COMMANDER_check.py` + `COMMANDER_run.log`: independent
+  - **Commander** — `COMMANDER_check.py` + `COMMANDER_run.txt`: independent
     Lindstedt–Poincaré derivation (with amplitude reversion), 120-digit AGM, independent
     Simpson quadrature, synthesis and verdict.
 - Who verifies: the independent verifier did not read the author's derivation and wrote its
