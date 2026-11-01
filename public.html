@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Science Legion — verified multi-agent science</title>
+  <style>
+    :root{--bg:#030712;--panel:#0b1220;--line:#1e3a4a;--ink:#dbeafe;--muted:#7f8fa6;--teal:#5eead4;--cyan:#22d3ee;--amber:#fbbf24;--red:#f87171}
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(1200px 600px at 10% -10%,#0f2a3d 0%,var(--bg) 60%);color:var(--ink);font:15px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    main{max-width:960px;margin:0 auto;padding:64px 24px 80px}
+    .kicker{color:var(--teal);letter-spacing:.22em;font-size:11px}
+    h1{font-size:clamp(32px,6vw,58px);line-height:1.05;margin:12px 0 18px;letter-spacing:-.03em}
+    h1 span{color:var(--teal)}
+    h2{font-size:20px;margin:42px 0 10px;color:var(--cyan);letter-spacing:.04em}
+    p,li{color:#b6c6db}
+    strong{color:var(--ink)}
+    .hook{border:1px solid #fbbf2455;background:#fbbf2408;padding:18px 20px;border-radius:12px;margin:26px 0}
+    .hook b{color:var(--amber)}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+    .card{border:1px solid var(--line);background:linear-gradient(180deg,#0c1626,#08101c);border-radius:12px;padding:14px}
+    .card h3{margin:0 0 6px;font-size:12px;letter-spacing:.12em;color:var(--muted)}
+    .card p{margin:0;font-size:13px}
+    code,pre{font-family:inherit}
+    pre{background:#060d18;border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;color:#d1fae5;font-size:12px}
+    .ok{color:var(--teal)} .warn{color:var(--amber)} .bad{color:var(--red)}
+    .pill{display:inline-block;border:1px solid #34d39955;color:var(--teal);border-radius:999px;padding:2px 9px;font-size:11px;letter-spacing:.08em;margin-right:6px}
+    a{color:var(--cyan)}
+    footer{margin-top:48px;color:#4d6078;font-size:11px}
+    @media(max-width:720px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<main>
+  <div class="kicker">DSH SCIENCE LEGION · v0.2.0</div>
+  <h1>Verified science,<br><span>not agent theater.</span></h1>
+  <p>A command layer for tiered multi-agent campaigns in math, physics, astronomy, engineering, and biomedical evidence. One commander, a shared blackboard, independent lines of attack, a verifier that can say <em>no</em>, and a token budget written down before anyone spawns.</p>
+
+  <div class="hook">
+    <b>A six-agent squad's first catch was an error in its own benchmark.</b><br>
+    The answer key said the fourth-order pendulum value at 1 rad was <code>1.066315375</code>.
+    The independent verifier showed that is actually the <strong>sixth-order</strong> truncation
+    <code>T6 = 1.066315375434…</code>. The real fourth-order value is
+    <code>T4 = 3275/3072 = 1.066080729…</code>. The formula survived; the key was corrected.
+  </div>
+
+  <h2>Why this exists</h2>
+  <p>Frontier models are good at producing plausible physics. Plausible is not verified. I wanted a science tool judged by <strong>verified claims per token</strong>, not by how many agents it can spawn. The first six-agent run immediately caught a bad answer key — mine. That is the product working.</p>
+
+  <h2>What is in the bundle</h2>
+  <div class="grid">
+    <div class="card"><h3>COMMAND</h3><p>Squad 6 → Platoon 24 → Company 96 → Legion 384–1000. The Legion tier is a budgeted, untested design target, not a default.</p></div>
+    <div class="card"><h3>DOMAINS</h3><p>Math, physics, astronomy, engineering design checks, and biomedical evidence appraisal. Biomedical is evidence review, not medical advice.</p></div>
+    <div class="card"><h3>VERIFY</h3><p>A separate verifier with claim-only input, an evidence table, reproduction, falsification, and provenance. Consensus is not proof.</p></div>
+  </div>
+
+  <h2>Tactics</h2>
+  <p><span class="pill">WOLF PACK</span> independent packs with different methods, no cross-talk before submission.<br>
+  <span class="pill">FLANK</span> reach the claim through a neighbouring field, limit, or dual formulation.<br>
+  <span class="pill">PINCER</span> two independent methods must agree; disagreement stays unresolved.<br>
+  <span class="pill">SIEGE</span> rounds with a blackboard, not one giant fan-out. Keep 20–30% of tokens for verification.</p>
+
+  <h2>The fourth-order pilot, in numbers</h2>
+  <pre>T/T0 = 1 + θ0²/16 + 11 θ0⁴/3072 + 173 θ0⁶/737280 + O(θ0⁸)
+T    = 4√(L/g) K(sin(θ0/2))
+
+θ0 = 1 rad:
+exact T/T0 = 1.066334245579963…
+T4         = 3275/3072 = 1.066080729166…
+T4 - exact = -2.53516413296e-4   (-0.0238%)
+old key    = 1.066315375          ← this is T6, not T4</pre>
+  <p>Exact rational series, AGM/Decimal, tanh-sinh quadrature, and RK4 agree. The answer key was wrong; the formula was not.</p>
+  <p>The estimator scales that pilot: <code>node scripts/estimate-campaign.mjs --agents 24</code> → about ¥7.27 with 25% coordination overhead. It is a planning number, not a quote.</p>
+  <p><strong>Measured cost:</strong> ¥1.4543 for the six agent sessions (110 calls; 5.79M cache-read, 155.6k uncached input, 295.7k output). Orchestrator/main session excluded. ¥1.45 per verified answer for this run — not a linear price for 1000 agents.</p>
+
+  <h2>What it does not prove</h2>
+  <ul>
+    <li>It does not solve an open problem. The pilot is a known-answer problem.</li>
+    <li>It has not run 24, 96, or 1000 agents. Six is the largest validated squad.</li>
+    <li>Only the six-agent pilot cost is measured (¥1.4543, agent sessions only). No 24/96/1000-agent cost model exists.</li>
+    <li>The ideal-pendulum assumptions are unchecked against an apparatus.</li>
+  </ul>
+
+  <h2>Install</h2>
+  <pre># local checkout
+plugin_manager install_bundle /path/to/dsh-science-legion
+
+# after the public repo exists
+dsh plugin --profile web add github:lengrufeng2008/dsh-science-legion</pre>
+  <p>Then invoke <code>science-legion</code> on a hard problem, or <code>legion-command</code> for the campaign protocol. Start at Squad 6.</p>
+
+  <h2>Read the work</h2>
+  <p><a href="https://github.com/lengrufeng2008/dsh-science-legion">GitHub repository (to be published)</a> · the six-agent case study and known-answer evals are in the repository tree</p>
+
+  <footer>MIT · built on DeepSeek Harness by lengrufeng2008 · no market data, no orders, no open-problem claims.</footer>
+</main>
+</body>
+</html>
