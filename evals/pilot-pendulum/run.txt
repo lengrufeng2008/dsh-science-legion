@@ -1,0 +1,68 @@
+ROUTE A  exact rational series of T/T0 (K series composed with k=sin(th/2))
+  coeff theta0^2 = 1/16 = 6.250000000000e-02
+  coeff theta0^4 = 11/3072 = 3.580729166667e-03
+  coeff theta0^6 = 173/737280 = 2.346462673611e-04
+  1/16 = 1/16 ; 11/3072 = 11/3072 ; 173/737280 = 173/737280
+
+ROUTE B/C  AGM vs Simpson for K(sin(th0/2))
+  theta0=0.001  |K_AGM-K_Simpson| = 6.128e-14   rel=3.901e-14
+  theta0=0.1    |K_AGM-K_Simpson| = 6.883e-15   rel=4.379e-15
+  theta0=0.5    |K_AGM-K_Simpson| = 3.464e-14   rel=2.171e-14
+  theta0=1.0    |K_AGM-K_Simpson| = 3.020e-14   rel=1.803e-14
+  theta0=2.0    |K_AGM-K_Simpson| = 4.441e-15   rel=2.127e-15
+
+ROUTE E  c(theta0) = (T_exact/T0 - 1)/theta0^2  [should -> 1/16]
+  theta0=0.4     c = 0.063078995622949   c-1/16 = +5.790e-04
+  theta0=0.2     c = 0.062643605715046   c-1/16 = +1.436e-04
+  theta0=0.1     c = 0.062535830773669   c-1/16 = +3.583e-05
+  theta0=0.05    c = 0.062508953289697   c-1/16 = +8.953e-06
+  theta0=0.025   c = 0.062502238047202   c-1/16 = +2.238e-06
+  Richardson(0.4->...) = 0.0624999039393374
+  1/16                 = 0.0625000000000000   diff = -9.606e-08
+
+  theta0=0.01: c = 0.062500358076
+    1/16 model   1/16 + (11/3072)th^2 = 0.062500358073   diff = +2.73e-12
+    1/8  model   = 0.125              diff = -0.062500
+    ratio to 1/8 discrepancy: 22902749837.5x
+
+ROUTE D  RK4 integration of theta'' = -sin(theta), L=g=1
+  theta0=0.1:  RK4(extrap)=6.2871145493  AGM=6.2871145493  diff=+2.54e-11  formula=6.2871122980  rel(formula-exact)=-3.581e-07
+  theta0=0.3:  RK4(extrap)=6.3187115435  AGM=6.3187115434  diff=+2.55e-11  formula=6.3185282245  rel(formula-exact)=-2.901e-05
+  theta0=0.5:  RK4(extrap)=6.3827896977  AGM=6.3827896977  diff=+2.60e-11  formula=6.3813600776  rel(formula-exact)=-2.240e-04
+
+ROUTE F  truncation error of the claimed formula vs exact period
+  theta0    T_exact/T0      T_formula/T0    rel error     11 th^4/3072
+  0.01     1.000006250036  1.000006250000  -3.5807e-11   3.5807e-11
+  0.05     1.000156272383  1.000156250000  -2.2380e-08   2.2380e-08
+  0.1      1.000625358308  1.000625000000  -3.5808e-07   3.5807e-07
+  0.2      1.002505744229  1.002500000000  -5.7299e-06   5.7292e-06
+  0.3      1.005654176110  1.005625000000  -2.9012e-05   2.9004e-05
+  0.5      1.015852531101  1.015625000000  -2.2398e-04   2.2380e-04
+  1.0      1.066334245580  1.062500000000  -3.5957e-03   3.5807e-03
+  1.5      1.161968744387  1.140625000000  -1.8369e-02   1.8127e-02
+  2.0      1.328904451915  1.250000000000  -5.9376e-02   5.7292e-02
+  3.0      2.571233949432  1.562500000000  -3.9232e-01   2.9004e-01
+
+  theta0 -> 0 limit:
+    theta0=0.001: T_exact/T0-1 = 6.250e-08
+    theta0=1e-06: T_exact/T0-1 = 6.239e-14
+    theta0=1e-09: T_exact/T0-1 = 0.000e+00
+
+  sign: T_exact/T0 - 1 for increasing amplitude
+    theta0=0.1: +6.253583e-04
+    theta0=0.5: +1.585253e-02
+    theta0=1.0: +6.633425e-02
+    theta0=2.0: +3.289045e-01
+    theta0=3.0: +1.571234e+00
+
+  convention check (theta0 interpreted peak-to-peak, i.e. amplitude=th0/2):
+    theta0=0.1: zero-to-peak 1.00062500 vs peak-to-peak 1.00015625 (difference 4.688e-04)
+    theta0=0.3: zero-to-peak 1.00562500 vs peak-to-peak 1.00140625 (difference 4.219e-03)
+
+  dimensional check: T0(L=1,g=9.80665) and T0(2L)/T0(L)
+    T0(1 m) = 2.006409293 s ; T0(2 m)/T0(1 m) = 1.414213562373 ; sqrt(2) = 1.414213562373
+
+  large-amplitude breakdown (formula stays finite, exact diverges):
+    theta0=3.0: exact/T0 = 2.5712, formula/T0 = 1.562500
+    theta0=3.1: exact/T0 = 3.3485, formula/T0 = 1.600625
+    theta0=3.13: exact/T0 = 4.1615, formula/T0 = 1.612306
