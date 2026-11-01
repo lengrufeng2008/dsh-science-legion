@@ -130,7 +130,7 @@ reconstruction leaves a `6.2%` error and a `3.7e-5` inconsistency.
 ## 7. Error table and validity window
 
 `T4` evaluated with exact rational coefficients, not binary64. Values from
-`COMMANDER_run.log`; exact values from the AGM.
+`COMMANDER_run.txt`; exact values from the AGM.
 
 | θ0 (rad) | exact `T/T0` | `T4` | `T4 − exact` | relative |
 |---:|---:|---:|---:|---:|
@@ -152,10 +152,10 @@ Artifacts and logs:
 | File | Role | Status |
 |---|---|---|
 | `SCOUT.md` | scout/theorist derivation, pitfalls | present |
-| `scout_check.py`, `SCOUT_run.log` | exact series, AGM, RK4, coefficient extraction | rerun exit 0 |
-| `check.py`, `run.log` | calculator: independent 90-digit AGM check | rerun exit 0 |
-| `VERIFY.py`, `VERIFY_run.log` | independent verifier: 110-digit AGM, tanh-sinh, exact rational series | rerun exit 0 |
-| `COMMANDER_check.py`, `COMMANDER_run.log` | commander: Lindstedt–Poincaré, 120-digit AGM, Simpson, source audit | rerun exit 0 |
+| `scout_check.py`, `SCOUT_run.txt` | exact series, AGM, RK4, coefficient extraction | rerun exit 0 |
+| `check.py`, `run.txt` | calculator: independent 90-digit AGM check | rerun exit 0 |
+| `VERIFY.py`, `VERIFY_run.txt` | independent verifier: 110-digit AGM, tanh-sinh, exact rational series | rerun exit 0 |
+| `COMMANDER_check.py`, `COMMANDER_run.txt` | commander: Lindstedt–Poincaré, 120-digit AGM, Simpson, source audit | rerun exit 0 |
 
 Reproduce:
 
@@ -171,8 +171,8 @@ All four exited 0. No network, no external data, and no measurement were used.
 
 Provenance caveats (documentation, not mathematics):
 
-- `SCOUT.md` says its log is `run.log`, but `run.log` matches `check.py`'s output. The commander
-  reran `scout_check.py` and saved the log as `SCOUT_run.log`.
+- `SCOUT.md` says its log is `run.txt`, but `run.txt` matches `check.py`'s output. The commander
+  reran `scout_check.py` and saved the log as `SCOUT_run.txt`.
 - `scout_check.py` route F converts the exact `T4` through binary64; its error at 1 rad is
   `2.53516413296305e-4`, while the exact-rational value is `2.535164132963790e-4`. The
   difference is `7.4e-17` absolute (`≈2.9e-13` relative) and does not affect the verdict;
